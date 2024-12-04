@@ -1,0 +1,126 @@
+.benifits {
+  padding: 25px 0;
+  background-color: var(--light-bg);
+
+  &-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: 15px;
+
+    @media screen and (max-width: 1020px) {
+      column-gap: 40px;
+      grid-template-columns: 1fr 1fr;
+      row-gap: 25px;
+    }
+
+    @media screen and (max-width: 620px) {
+      grid-template-columns: 1fr;
+      row-gap: 40px;
+    }
+  }
+
+  &__item {
+    // min-width: 250px;
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+
+    &:not(:last-child) {
+      &::after {
+        content: "";
+        position: absolute;
+        right: -7px;
+        top: 0;
+        width: 2px;
+        height: 100%;
+        background-color: var(--light-color);
+      }
+    }
+
+    &-icon {
+      padding: 0;
+      min-width: 64px;
+      font-size: 4rem;
+      line-height: 4rem;
+      text-align: right;
+      color: #ffffff;
+    }
+
+    &-info {
+      padding: 0 15px;
+      color: #fff;
+      text-align: center;
+
+      @media screen and (max-width: 1020px) {
+        margin-right: auto;
+      }
+
+      @media screen and (max-width: 620px) {
+        width: 60%;
+        min-width: 190px;
+        margin-right: 0;
+      }
+    }
+
+    &-title {
+      margin: 0 0 15px;
+      font-size: 1.2rem;
+    }
+
+    &-descr {
+      margin: 0;
+    }
+
+    @media screen and (max-width: 1020px) {
+      justify-content: center;
+
+      &:not(:last-child) {
+        &::after {
+          display: none;
+        }
+      }
+
+      &:nth-child(odd) {
+        justify-content: flex-end;
+
+        &::after {
+          content: "";
+          position: absolute;
+          right: -22px;
+          top: 0;
+          display: block;
+          width: 2px;
+          height: 100%;
+          background-color: var(--light-color);
+        }
+      }
+
+      &:nth-child(even) {
+        justify-content: flex-start;
+      }
+    }
+
+
+    @media screen and (max-width: 620px) {
+      &:nth-child(even),
+      &:nth-child(odd) {
+        justify-content: center;
+      }
+
+      &:not(:last-child) {
+        &:before {
+          position: absolute;
+          content: "";
+          width: 150%;
+          height: 2px;
+          background-color: var(--light-color);
+          bottom: -20px;
+          left: -25%;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,72 @@
+.faq {
+  padding-top: 0;
+
+  &-list {
+    list-style: none;
+    padding: 0;
+
+    &__item {
+      input {
+        position: absolute;
+        opacity: 0;
+      }
+
+      &-title {
+        position: relative;
+        display: block;
+        border: 1px solid var(--input-border);
+        padding: 1rem 2.5rem 1rem 1.25rem;
+        width: 100%;
+        font-weight: 700;
+        font-size: 1.4rem;
+        cursor: pointer;
+
+        &::after {
+          content: "";
+          position: absolute;
+          right: 1rem;
+          top: 50%;
+          width: 1.25rem;
+          height: 1.25rem;
+          background-image: url(data:image/svg+xml;charset=utf-8;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHZpZXdCb3g9JzAgMCAxNiAxNicgZmlsbD0nIzIxMjUyOSc+PHBhdGggZmlsbC1ydWxlPSdldmVub2RkJyBkPSdNMS42NDYgNC42NDZhLjUuNSAwIDAxLjcwOCAwTDggMTAuMjkzbDUuNjQ2LTUuNjQ3YS41LjUgMCAwMS43MDguNzA4bC02IDZhLjUuNSAwIDAxLS43MDggMGwtNi02YS41LjUgMCAwMTAtLjcwOHonLz48L3N2Zz4=);
+          background-repeat: no-repeat;
+          transform: translateY(-50%);
+          transition: all 0.3s;
+        }
+
+        &:focus {
+          box-shadow: 0 0 0 0.25rem rgb(0 191 137 / 25%);
+        }
+      }
+
+      &--active {
+        .faq-list__item-title {
+          color: var(--light-bg);
+          // background-color: var(--light-blue);
+
+          &::after {
+            transform: translateY(-50%) rotate(-180deg);
+          }
+        }
+
+        .faq-list__descr {
+          max-height: 600px;
+          transition: all 0.5s;
+        }
+      }
+    }
+
+    &__descr {
+      overflow: hidden;
+      margin: -1px 0 0;
+      max-height: 0;
+      transition: all 0.3s;
+
+      p {
+        margin: 0;
+        border: 1px solid var(--input-border);
+        padding: 1rem 1.25rem;
+      }
+    }
+  }
+}

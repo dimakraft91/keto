@@ -1,0 +1,290 @@
+.prices {
+  &-slider {
+    position: relative;
+    padding-top: 0;
+    padding-bottom: 40px;
+
+    input {
+      display: none;
+    }
+
+
+    .prices__item {
+      &--active {
+        .prices__item-inner {
+          border: 5px solid var(--main-color);
+
+          .prices__item-lastsale {
+            color: var(--light-color);
+            background-color: var(--main-color);
+          }
+        }
+      }
+    }
+
+    .slick-track {
+      display: flex;
+    }
+
+    .slick-slide.slides {
+      flex: 0 0 auto;
+      height: auto;
+    }
+
+    &__wrapper {
+      position: relative;
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+
+      @media screen and (max-width: 1024px) {
+        display: block;
+      }
+    }
+
+    &__item {
+      display: inline-block;
+      text-align: center;
+    }
+
+    &__btn {
+      position: absolute;
+      z-index: 999;
+      display: none;
+      border: 3px solid var(--main-color);
+      padding: 0.3rem 1.5rem;
+      font-size: 1.4rem;
+      line-height: 1.4rem;
+      color: var(--main-color);
+      background-color: var(--light-color);
+      transition: all 0.3s ease;
+      cursor: pointer;
+
+      &:hover {
+        color: var(--light-color);
+        background-color: var(--main-color);
+      }
+
+      &--prev {
+        @media screen and (max-width: 1024px) {
+          left: 50%;
+          transform: translate(-120px, -50%);
+        }
+      }
+
+      &--next {
+        @media screen and (max-width: 1024px) {
+          right: 50%;
+          transform: translate(120px, -50%);
+        }
+      }
+
+      @media screen and (max-width: 1024px) {
+        display: inline-block;
+      }
+    }
+
+    .slick {
+      &-slide {
+        &:not(.slick-active) {
+          opacity: 0;
+          transition: opacity 0.2s;
+        }
+
+        @media screen and (max-width: 480px) {
+          // padding: 0 10px;
+        }
+      }
+
+      &-dots {
+        bottom: -40px;
+
+        li {
+          button {
+            &::before {
+              color: var(--main-color);
+            }
+          }
+
+          &.slick-active {
+            button {
+              &::before {
+                color: var(--main-color);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &__item {
+    position: relative;
+    display: inline-block;
+    margin: 0;
+    border: 3px solid var(--grey-color);
+    max-width: 394px;
+    background-color: var(--light-color);
+
+    &-inner {
+      margin: -3px 0 0 -3px;
+      border: 5px solid transparent;
+      padding: 4rem 2rem 1rem;
+      width: calc(100% + 6px);
+    }
+
+    &-lastsale {
+      position: absolute;
+      right: 0;
+      top: 0;
+      padding: 0.5rem 1rem;
+      font-size: 0.8rem;
+      text-align: center;
+      background-color: var(--grey-color);
+
+      span {
+        display: block;
+        margin-top: 2px;
+      }
+    }
+
+    &-pack {
+      width: 100%;
+      height: 220px;
+      max-width: 320px;
+      background-position: center center;
+      background-size: contain;
+      background-repeat: no-repeat;
+
+      &-1 {
+        background-image: url(../img/probinu_bundles-01.png);
+      }
+
+      &-2 {
+        background-image: url(../img/probinu_bundles-03.png);
+      }
+
+      &-3 {
+        background-image: url(../img/probinu_bundles-02.png);
+      }
+    }
+
+    &-info {
+      h3 {
+        margin-top: 0;
+        font-size: 1.75rem;
+      }
+
+      h4 {
+        margin: 0 0 0.5rem;
+        font-size: 1.5rem;
+      }
+
+      p {
+        margin-top: 0;
+        margin-bottom: 1rem;
+      }
+
+      &__list {
+        list-style: none;
+        padding: 0;
+        text-align: left;
+
+        li {
+          position: relative;
+          margin: 0 0 1rem 2rem;
+          padding: 0.5rem;
+          font-size: 0.9rem;
+
+          &::before {
+            content: "\f058";
+            position: absolute;
+            left: -2rem;
+            top: 50%;
+            font-family: "Font Awesome 5 Free", serif;
+            font-size: 1.6rem;
+            transform: translateY(-50%);
+          }
+
+          &.prices__item-info--accent {
+            color: var(--light-color);
+            background-color: var(--accent-price-info);
+
+            &::before {
+              content: "";
+              border-radius: 50%;
+              padding: 10px;
+              width: 25px;
+              height: 25px;
+              color: var(--accent-price-info);
+              background-image: url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDI2LjAuMiwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPgo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkxheWVyXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4IgoJIHZpZXdCb3g9IjAgMCAyNDggMTg0IiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCAyNDggMTg0OyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+CjxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+Cgkuc3Qwe2ZpbGw6I0ZGRkZGRjt9Cjwvc3R5bGU+CjxwYXRoIGNsYXNzPSJzdDAiIGQ9Ik0xMTEuOCwxNzUuOGMtMTAuOSwxMC45LTI4LjcsMTAuOS0zOS42LDBsLTY0LTY0Yy0xMC45LTEwLjktMTAuOS0yOC43LDAtMzkuNmMxMC45LTEwLjksMjguNy0xMC45LDM5LjYsMAoJTDkyLDExNi40TDIwMC4yLDguMmMxMC45LTEwLjksMjguNy0xMC45LDM5LjYsMGMxMC45LDEwLjksMTAuOSwyOC43LDAsMzkuNkwxMTEuOCwxNzUuOHoiLz4KPC9zdmc+Cg==");
+              background-position: center;
+              background-size: 13px 13px;
+              background-repeat: no-repeat;
+              background-color: var(--accent-price-info);
+            }
+          }
+        }
+      }
+    }
+
+    &-price {
+      text-align: center;
+
+      &__text {
+        display: block;
+        font-size: 0.8rem;
+      }
+
+      &__total {
+        font-size: 1rem;
+      }
+    }
+
+    &-payterm {
+      display: flex;
+      align-items: center;
+      margin-top: 1rem;
+      border: 1px solid var(--grey-color);
+      padding: 0.8rem 1rem;
+      gap: 15px;
+
+      &__bank {
+        border-radius: 4px;
+        padding: 0.4rem 0.5rem;
+        font-weight: 700;
+        font-size: 0.9rem;
+        background-color: var(--pink-color);
+      }
+
+      &__text {
+        text-align: left;
+      }
+
+      &__link {
+        text-decoration: underline;
+        color: var(--black-color);
+      }
+
+      &__btn {
+        display: inline-block;
+        margin-top: 1rem;
+        padding: 1rem 0;
+        width: 100%;
+        font-size: 1.4rem;
+        color: var(--light-color);
+        background-color: var(--main-color);
+      }
+    }
+
+    &-rate {
+      padding: 15px 0 20px;
+
+      a {
+        display: inline-block;
+        margin-top: 10px;
+        color: var(--main-color);
+      }
+    }
+  }
+}

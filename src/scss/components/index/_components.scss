@@ -1,0 +1,41 @@
+.composition {
+  .container {
+    @media screen and (max-width: 920px) {
+      max-width: 600px;
+    }
+  }
+
+  &-item {
+    display: flex;
+    align-items: center;
+    margin: 20px 0;
+
+    &__img {
+      flex-shrink: 0;
+      padding: 0 10px;
+      width: 100%;
+      max-width: 394px;
+    }
+
+    &--left {
+      flex-direction: row-reverse;
+    }
+
+    @media screen and (max-width: 920px) {
+      flex-direction: column;
+      align-items: center;
+
+      &:not(:last-child) {
+        margin-bottom: 40px;
+      }
+    }
+  }
+
+  &-info {
+    padding: 0 15px;
+    &__title {
+      font-weight: 700;
+      font-size: 32px;
+    }
+  }
+}

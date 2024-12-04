@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="fr" class="page">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css"
+  integrity="sha512-17EgCFERpgZKcm0j0fEq1YCJuyAWdz9KUtv1EjVuaOz8pDnh/0nZxmU6BBXwaaxqoi9PQXnRWqlcDB027hgv9A=="
+  crossorigin="anonymous" referrerpolicy="no-referrer" />
+@include('partials/head.html', {
+'title': "ACHETER MAINTENANT - KETO DUAL SYSTEM"
+})
+
+<body class="page__body">
+  <div class="site-container">
+    @include('partials/header.html', {
+      'activelink': '1'
+    })
+    <main class="main">
+      @include('partials/prices/prices-slider.html')
+      @include('partials/prices/prices-form.html')
+      @include('partials/prices/prices-comments.html')
+      @include('partials/prices/prices-comments-form.html')
+      @include('partials/prices/popup-select.html')
+
+    </main>
+
+    @include('partials/footer.html')
+    <!-- @include('html/h1.html') пример include -->
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
+
+  <script>
+
+    $(window).on("load resize", function () {
+      var width = $(document).width();
+
+      $('.prices-slider__wrapper').not('.slick-initialized').slick({
+        dots: true,
+        infinite: false,
+        prevArrow: '.prices-slider__btn--prev',
+        nextArrow: '.prices-slider__btn--next',
+        mobileFirst: true,
+        responsive: [
+          {
+            breakpoint: 310,
+            settings: {
+              adaptiveHeight: true,
+              initialSlide: 1,
+              slidesToShow: 1,
+              slidesToScroll: 1,
+            }
+          },
+          {
+            breakpoint: 901,
+            settings: {
+              initialSlide: 0,
+              slidesToShow: 2,
+              slidesToScroll: 1,
+            }
+          },
+          {
+            breakpoint: 1024,
+            settings: 'unslick'
+          }
+        ]
+      });
+    });
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const checks = document.querySelectorAll('input[name="slides"]');
+      const priceItems = document.querySelectorAll('.prices__item');
+      const inputPacks = document.querySelector('[name="packs"]');
+
+      function checkPriceItems(activeInput) {
+        if (activeInput) {
+          clearActiveClass()
+          activeInput.setAttribute('checked', '')
+        }
+        checks.forEach(input => {
+          if (input.hasAttribute('checked')) {
+            let inputId = input.getAttribute('id');
+            let activeLabel = document.querySelector(`label[for="${inputId}"]`);
+
+            activeLabel.classList.add('prices__item--active');
+            inputPacks.value = inputId.split('-')[1];
+          }
+        })
+      }
+
+      function clearActiveClass() {
+        priceItems.forEach(item => {
+          let id = item.getAttribute('for')
+          document.querySelector(`#${id}`).removeAttribute('checked')
+          item.classList.remove('prices__item--active')
+        })
+      }
+
+      checks.forEach(item => {
+        item.addEventListener('change', () => {
+          checkPriceItems(item)
+
+          console.log(item.id)
+
+          document.getElementById('form').scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          })
+        })
+      })
+
+      checkPriceItems()
+
+
+      const form = document.getElementById('form');
+      const inputs = form.querySelectorAll('input[required]')
+      const submitBtn = form.querySelector('.form__btn');
+
+      inputs.forEach(input => {
+        input.addEventListener('input', () => {
+          if (input.value == '') {
+            input.classList.remove('confirm')
+            input.classList.add('error')
+          } else {
+            input.classList.remove('error')
+            input.classList.add('confirm')
+
+          }
+        })
+      })
+
+      submitBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+
+        inputs.forEach(input => {
+          if (input.value == "") {
+            console.log(input)
+            input.classList.add('error')
+          } else {
+            input.classList.remove('error')
+          }
+
+          input.addEventListener('input', () => {
+            if (input.value == '') {
+              input.classList.add('error')
+            } else {
+              input.classList.remove('error')
+            }
+          })
+        })
+      })
+
+
+      // Promocode input
+
+      const promoBtn = document.querySelector('.form__promocode');
+      const promoWrapp = document.querySelector('.form__promocode-wrapper');
+      const promoSendBtn = document.querySelector('.form__promocode-send');
+      const promoInput = promoWrapp.querySelector('input[name="promocode"]');
+      const promoErrorText = promoWrapp.querySelector('.form__promocode-error')
+
+      promoBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+
+        promoWrapp.classList.toggle('form__promocode-wrapper--show');
+      })
+
+      promoSendBtn.addEventListener('click', (e) => {
+        e.preventDefault()
+
+        promoInput.classList.add('error');
+
+        promoErrorText.classList.add('error-show')
+      })
+
+      promoInput.addEventListener('input', (e) => {
+        console.log(e.target.value.length)
+        if (e.target.value.length === 0) {
+          e.target.classList.remove('error')
+          promoErrorText.classList.remove('error-show')
+
+        }
+      })
+
+    })
+
+class Comment {
+	constructor(
+		commentForm,
+		inputCommentName,
+		inputCommentText,
+		commentPushBlock
+	) {
+		this.commentForm = document.querySelector(commentForm);
+		this.inputCommentName = document.querySelector(inputCommentName);
+		this.inputCommentText = document.querySelector(inputCommentText);
+		this.commentPushBlock = document.querySelector(commentPushBlock);
+		this.commArrAll = [];
+		this.pushComBlock();
+		this.domOnloader();
+}
+
+pushComm() {}
+
+removeInputClass() {
+	if (this.inputCommentName) {
+	this.inputCommentName.value = "";
+	this.inputCommentName.classList.remove("error");
+	this.inputCommentName.classList.remove("confirm");
+	}
+}
+
+pushComBlock() {
+	this.commentForm.addEventListener("submit", (e) => {
+	e.preventDefault();
+	if (this.inputCommentName) {
+		if (this.inputCommentName.value) {
+			return this.pushComm();
+		}
+		this.inputCommentName.classList.add("error");
+	}
+	});
+}
+
+domOnloader() {
+	document.addEventListener("DOMContentLoaded", () => {
+		let commArr = localStorage["commArr"];
+		if (commArr) {
+			this.commArrAll = JSON.parse(localStorage.getItem("commArr"));
+			commentPushBlock.innerHTML = this.commArrAll.join("");
+      this.commentForm.remove();
+		}
+	});
+	}
+}
+
+const inputsCommentForm = commentForm.querySelectorAll("input[required]");
+
+inputsCommentForm.forEach((input) => {
+input.addEventListener("input", () => {
+	if (input.value == "") {
+		input.classList.remove("confirm");
+		input.classList.add("error");
+	} else {
+		input.classList.remove("error");
+		input.classList.add("confirm");
+	}
+});
+});
+
+let comment = new Comment(
+	"#commentForm",
+	"#inputCommentName",
+	"#inputCommentText",
+	"#commentPushBlock"
+);
+Comment.prototype.pushComm = function () {
+	const comment = `
+	<div class="card">
+		<div class="card-body">
+			<h3>Merci pour votre avis</h3>
+			<p class="mb-0">Nous avons réceptionné votre avis</p>
+		</div>
+	</div>`;
+	this.removeInputClass();
+	this.commArrAll.push(comment);
+	this.commentPushBlock.innerHTML = this.commArrAll.join("");
+	localStorage.setItem("commArr", JSON.stringify(this.commArrAll));
+  this.commentForm.style.display = 'none';
+};
+  </script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const countries = {
+        "BE": "Belgique",
+        "FR": "France",
+        "CA": "Canada"
+      };
+      const countrySelect = document.querySelector('.form-select');
+      const popupWrapp = document.querySelector('.popup-wrapper');
+      const popupClose = document.querySelector('.popup-close');
+      const popupCloseBtn = document.querySelector('.popup-close-btn');
+      const popupItems = document.querySelectorAll('.popup-list-item');
+      const formCountryFlag = document.querySelector('.form-select-flag');
+      const formCountryName = document.querySelector('.form-select-name');
+      const formCountryInput = document.querySelector('.form-select-input');
+
+      countrySelect.addEventListener('click', () => {
+        popupWrapp.classList.add('popup-wrapper--show')
+      })
+
+      function closePopup() {
+        popupWrapp.classList.remove('popup-wrapper--show');
+      }
+
+      function setCountry(country) {
+        formCountryFlag.setAttribute('class', 'form-select-flag');
+        formCountryFlag.classList.add(country.toLowerCase());
+        formCountryName.textContent = countries[country]
+      }
+
+      function checkCountry() {
+        const country = formCountryInput.value;
+
+        setCountry(country)
+      }
+
+      checkCountry()
+
+      popupClose.addEventListener('click', closePopup);
+      popupCloseBtn.addEventListener('click', closePopup);
+
+      popupItems.forEach(item => {
+
+        item.addEventListener('click', (e) => {
+          e.preventDefault()
+
+          let country = item.dataset.country;
+
+          setCountry(country)
+
+          formCountryInput.value = country
+          closePopup()
+        })
+      })
+    })
+  </script>
+  <script>
+    //date from moment.js
+
+		document.addEventListener("DOMContentLoaded", () => {
+			moment.locale(document.getElementsByTagName("html")[0].getAttribute("lang"));
+			let commDateFormat = "DD.MM.YYYY";
+			let currentDateFormat = "DD.MM.YYYY";
+			let monthFormat = "MMMM";
+			let yearFormat = "YYYY";
+			let publishDateFormat = "LL";
+			let publishDate = -6;
+
+			document.querySelectorAll(".js-current-date").forEach((node) => {
+				node.innerHTML = moment().format(currentDateFormat);
+			});
+
+			document.querySelectorAll(".js-current-month").forEach((node) => {
+				node.innerHTML = moment().format(monthFormat);
+			});
+
+			document.querySelectorAll(".js-current-year").forEach((node) => {
+				node.innerHTML = moment().format(yearFormat);
+			});
+
+			document.querySelectorAll(".js-publish-date-notime").forEach((node) => {
+				node.innerHTML = moment()
+				.add(publishDate, "days")
+				.format(publishDateFormat);
+			});
+
+			document.querySelectorAll("span[class^=day-]").forEach((node) => {
+				let num = node.getAttribute("class").split("-")[1];
+				node.innerText = moment().add(-num, "days").format(commDateFormat);
+			});
+			});
+			//date from moment.js
+  </script>
+</body>
+
+</html>
+
+<!-- <picture>
+  <source srcset="img/cover.webp" type="image/webp">
+  <img loading="lazy" src="img/cover.jpg" alt="">
+</picture> -->

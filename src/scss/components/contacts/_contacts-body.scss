@@ -1,0 +1,27 @@
+.contacts {
+  &-body {
+    display: flex;
+    flex: 1 1 auto;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 1.5rem;
+
+    &__column {
+      width: 45%;
+      min-width: 340px;
+    }
+
+    h3 {
+      margin-top: 0;
+      margin-bottom: 0.5rem;
+      font-size: 1.75rem;
+    }
+
+    p {
+      line-height: 1.5rem;
+    }
+    a {
+      color: #000;
+    }
+  }
+}

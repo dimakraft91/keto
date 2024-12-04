@@ -1,0 +1,55 @@
+// базовые подключения
+@import "vars";
+@import "mixins";
+@import "fonts";
+@import "settings";
+
+// подключения компонентов страницы
+@import "./icons";
+@import "./components/menu";
+@import "./components/footer";
+@import "./components/header";
+@import "./components/page-title";
+
+
+// INDEX
+@import "./components/index/top";
+@import "./components/index/reason";
+@import "./components/index/components";
+@import "./components/index/benifits";
+@import "./components/index/ingredients";
+@import "./components/index/information";
+
+//PRICES
+@import "./components/prices/prices-slider";
+@import "./components/prices/prices-form";
+@import "./components/prices/prices-comments";
+@import "./components/prices/prices-comments-form";
+@import "./components/prices/prices-popup";
+
+//METHODS
+@import "./components/application/methods-list";
+@import "./components/application/methods-faq";
+@import "./components/application/methods-side-effects";
+
+//DELIVERY
+@import "./components/delivery/delivery";
+@import "./components/delivery/delivery-header";
+
+//CONTACTS
+@import "./components/contacts/contacts-body";
+
+//SERVICE
+@import "./components/service/service";
+
+//PRIVACY
+@import "./components/privacy/privacy";
+
+
+
+
+// тестовые стили, удалите их
+.page__body {
+  height: 100%;
+}
+

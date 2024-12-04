@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="fr" class="page">
+@include('partials/head.html', {
+  'title': 'Application - KETO DUAL SYSTEM'
+})
+<body class="page__body">
+  <div class="site-container">
+    @include('partials/header.html', {
+      'activelink': '2'
+    })
+    <main class="main">
+      @include('partials/page-title.html', {
+        'title': 'Application',
+				'class': ''
+      })
+      @include('partials/application/methods-list.html')
+      @include('partials/application/methods-faq.html')
+      @include('partials/application/side-effects.html')
+
+    </main>
+
+
+    @include('partials/footer.html')
+    <!-- @include('html/h1.html') пример include -->
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // const accordHeaders = document.querySelectorAll(".accord-header");
+      // const accordBodyWrappers = document.querySelectorAll(".accord-body__wrapper");
+
+      // accordHeaders.forEach((header) => {
+      //   header.addEventListener("click", (e) => {
+      //     let wrapp = header.parentNode.querySelector(".accord-body__wrapper");
+
+      //     if (wrapp.classList.contains("accord-body__wrapper--active")) {
+      //       wrapp.classList.remove("accord-body__wrapper--active");
+      //     } else {
+      //       closeAllAccords();
+      //       wrapp.classList.add("accord-body__wrapper--active");
+      //     }
+      //   });
+      // });
+
+      // function closeAllAccords() {
+      //   accordBodyWrappers.forEach((i) => {
+      //     i.classList.remove("accord-body__wrapper--active");
+      //   });
+      // }
+
+      const accordItems = document.querySelectorAll('.faq-list__item');
+      console.log(accordItems)
+      accordItems.forEach(item => {
+        let itemHeader = item.querySelector('.faq-list__item-title');
+
+        itemHeader.addEventListener('click', () => {
+          if(item.classList.contains('faq-list__item--active')) {
+            item.classList.remove('faq-list__item--active');
+          } else {
+            closeAllAccords()
+            item.classList.add('faq-list__item--active');
+          }
+        })
+      })
+
+      function closeAllAccords() {
+        accordItems.forEach(i => {
+          i.classList.remove('faq-list__item--active');
+        })
+      }
+    })
+
+
+  </script>
+</body>
+
+</html>

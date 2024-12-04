@@ -1,0 +1,109 @@
+.ingredients {
+  &__pack {
+    width: 100%;
+    max-width: 600px;
+  }
+
+  &-content {
+    display: flex;
+    gap: 15px;
+
+    &__right {
+      flex-grow: 1;
+      flex-shrink: 0;
+      width: 50%;
+
+      .table {
+        vertical-align: top;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+        border-color: #dee2e6;
+        width: 100%;
+        color: #212529;
+
+        table {
+          caption-side: bottom;
+          border-collapse: collapse;
+          width: 100%;
+          max-width: 100%;
+          font-size: 1.2rem;
+
+          thead {
+            th {
+              border-bottom: 2px solid #000;
+              font-weight: 700;
+              text-align: inherit;
+              text-align: -webkit-match-parent;
+              text-transform: uppercase;
+
+              &:nth-child(3) {
+                text-align: right;
+              }
+            }
+          }
+
+          tbody {
+            display: table-row-group;
+            vertical-align: middle;
+            border-color: inherit;
+
+            tr {
+              color: var(--light-bg);
+
+              td:nth-child(3) {
+                text-align: right;
+              }
+
+              &:first-child {
+                color: #000;
+              }
+            }
+          }
+        }
+      }
+
+      @media screen and (max-width: 920px) {
+        width: 70%;
+      }
+
+      @media screen and (max-width: 680px) {
+        width: 95%;
+      }
+    }
+
+    @media screen and (max-width: 920px) {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+
+  &__btn {
+    display: block;
+    margin: 10px auto 0;
+    border-radius: 30px;
+    padding: 1rem;
+    // width: 60%;
+    max-width: 350px;
+    font-size: 1.4rem;
+    font-weight: 700;
+    text-align: center;
+    color: var(--light-color);
+    background: var(--orange);
+    transition: all 0.2s ease;
+    cursor: pointer;
+
+    span {
+      display: block;
+      margin-top: 5px;
+      font-size: 0.8rem;
+    }
+
+    &:hover {
+      transform: scale(0.99);
+    }
+
+    &:active {
+      transform: scale(0.98);
+    }
+  }
+}

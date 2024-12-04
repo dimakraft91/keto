@@ -1,0 +1,191 @@
+<section class="prices-form">
+  <div class="container">
+    <form action="" class="form" id="form">
+      <div class="form__column form__left">
+        <div class="form__header">
+          <h3>Étape 1 :</h3>
+          <h5>Informations sur la livraison</h5>
+        </div>
+        <input type="hidden" name="packs" value="3">
+        <div class="form__row">
+            <input type="radio" name="sex" value="male" id="male" checked>
+            <label for="male" class="form__label">Monsieur</label>
+
+            <input type="radio" name="sex" value="female" id="female">
+            <label for="female" class="form__label">Madame</label>
+        </div>
+        <div class="form__row form__row--double form__row--mobwide">
+          <div class="form__box">
+            <label for="first-name" class="form__label">Nom</label>
+            <input type="text" name="first-name" id="first-name" required>
+            <i class="fa-solid fa-xmark error-cross"></i>
+            <i class="fa-solid fa-check confirm-icon"></i>
+            <div class="form__error-box">Veuillez entrer votre prénom</div>
+          </div>
+          <div class="form__box">
+            <label for="last-name" class="form__label">Prénom</label>
+            <input type="text" name="last-name" id="last-name" required>
+            <i class="fa-solid fa-xmark error-cross"></i>
+            <i class="fa-solid fa-check confirm-icon"></i>
+            <div class="form__error-box">Veuillez entrer votre nom</div>
+          </div>
+        </div>
+        <div class="form__row form__row--double form__row--twoone">
+          <div class="form__box">
+            <label for="street" class="form__label">Rue</label>
+            <input type="text" name="street" id="street" required>
+            <i class="fa-solid fa-xmark error-cross"></i>
+            <i class="fa-solid fa-check confirm-icon"></i>
+            <div class="form__error-box">Veuillez entrer votre rue</div>
+
+          </div>
+          <div class="form__box">
+            <label for="build" class="form__label">№</label>
+            <input type="text" name="build" id="build" required>
+            <i class="fa-solid fa-xmark error-cross"></i>
+            <i class="fa-solid fa-check confirm-icon"></i>
+            <div class="form__error-box">Veuillez entrer votre numéro de maison</div>
+          </div>
+        </div>
+        <div class="form__row form__row--double form__row--onetwo">
+          <div class="form__box">
+            <label for="zip" class="form__label">Code postal</label>
+            <input type="text" name="zip" id="zip" required>
+            <i class="fa-solid fa-xmark error-cross"></i>
+            <i class="fa-solid fa-check confirm-icon"></i>
+            <div class="form__error-box">Veuillez entrer votre code postal</div>
+          </div>
+          <div class="form__box">
+            <label for="city" class="form__label">Ville</label>
+            <input type="text" name="city" id="city" required>
+            <i class="fa-solid fa-xmark error-cross"></i>
+            <i class="fa-solid fa-check confirm-icon"></i>
+            <div class="form__error-box">Veuillez entrer votre ville</div>
+          </div>
+        </div>
+        <div class="form__row">
+          <div class="form__box">
+            <label for="country" class="form__label">Pays</label>
+            <input class="form-select-input" type="hidden" id="country" value="BE">
+            <div class="form-select">
+              <div class="form-select-flag be"></div>
+              <span class="form-select-name">Belgique</span>
+            </div>
+          </div>
+        </div>
+        <div class="form__row">
+          <div class="form__box">
+            <label for="phone" class="form__label">Numéro de téléphone</label>
+            <input type="tel" name="phone" id="phone" required>
+            <i class="fa-solid fa-xmark error-cross"></i>
+            <i class="fa-solid fa-check confirm-icon"></i>
+            <div class="form__error-box">Veuillez entrer votre numéro de téléphone</div>
+          </div>
+        </div>
+        <div class="form__row">
+          <div class="form__box">
+            <label for="email" class="form__label">Adresse e-mail</label>
+            <input type="email" name="emil" id="email" required>
+            <i class="fa-solid fa-xmark error-cross"></i>
+            <i class="fa-solid fa-check confirm-icon"></i>
+            <div class="form__error-box">Veuillez enter votre adresse e-mail</div>
+          </div>
+        </div>
+        <div class="form__row centered">
+          <i class="fa fa-lock"></i>
+          Vos informations personnelles sont protégées et cryptées.
+        </div>
+      </div>
+      <div class="form__column form__right">
+        <div class="form__header">
+          <h3>Étape 2:</h3>
+          <h5>Mode de paiement</h5>
+        </div>
+        <ul class="form__payments__list">
+          <li>
+            <input type="radio" id="payments-method-1" name="payments-method" value="payments-method-1" checked>
+            <label for="payments-method-1" class="form__payments__text">
+              <img src="img/svg/mollie-klarna.svg" alt="">
+              Par compte (Klarna)
+              <p>
+                Vous avez la possibilité de payer avec Klarna Pay Later. Dans ce cas, la commande est réglée à réception.
+              </p>
+            </label>
+          </li>
+          <li>
+            <input type="radio" id="payments-method-2" name="payments-method" value="payments-method-2">
+            <label for="payments-method-2" class="form__payments__text">
+              <img src="img/svg/mollie-klarna.svg" alt="">
+              Prélèvement automatique (Klarna)
+              <p>
+                Avec Klarna Pay Now, vous avez la possibilité de payer par prélèvement automatique ou virement instantané.
+              </p>
+            </label>
+          </li>
+          <li>
+            <input type="radio" id="payments-method-3" name="payments-method" value="payments-method-3">
+            <label for="payments-method-3" class="form__payments__text">
+              <img src="img/svg/mollie-klarna.svg" alt="">
+              Paiement à tempérament (Klarna)
+              <p>
+                Avec le plan de versement de Klarna, vous pouvez facilement diviser votre commande en paiements mensuels.
+              </p>
+            </label>
+          </li>
+          <li>
+            <input type="radio" id="payments-method-4" name="payments-method" value="payments-method-4">
+            <label for="payments-method-4" class="form__payments__text">
+              <img src="img/svg/mollie-sofort.svg" alt="">
+              Virement bancaire instantané
+              <p>
+                Avec le système de paiement Sofort certifié par TÜV, vous pouvez payer vos achats facilement sans inscription et en toute sécurité grâce au code PIN et au TAN.
+              </p>
+            </label>
+          </li>
+          <li>
+            <input type="radio" id="payments-method-5" name="payments-method" value="payments-method-5">
+            <label for="payments-method-5" class="form__payments__text">
+              <img src="img/svg/credit-cards.svg" alt="">
+              Carte de crédit
+              <p>
+                Visa, MasterCard ou American Express
+              </p>
+            </label>
+          </li>
+          <li>
+            <input type="radio" id="payments-method-6" name="payments-method" value="payments-method-6">
+            <label for="payments-method-6" class="form__payments__text">
+              <img src="img/svg/transferwise.svg" alt="">
+              Virement bancaire
+              <p>
+                Vous effectuez un paiement anticipé et recevez le produit livré à domicile, paiement après réception.
+              </p>
+            </label>
+          </li>
+        </ul>
+        <button type="submit" class="form__btn">
+          <i class="fa fa-arrow-circle-right"></i>
+          Commander maintenant !
+        </button>
+        <div class="form__sings">
+          <picture>
+            <source srcset="img/sings.webp" type="image/webp">
+            <img loading="lazy" src="img/sings.jpg" alt="">
+          </picture>
+        </div>
+          <button type="button" class="form__promocode">
+            Avez-vous le code promotionnel ?
+          </button>
+          <div class="form__promocode-wrapper">
+            <div class="form__promocode-wrapper-inner">
+              <input type="text" name="promocode">
+              <button type="button" class="form__promocode-send">Envoyer</button>
+            </div>
+            <div class="form__promocode-error">
+              Le code promotionnel n'est pas valide
+            </div>
+          </div>
+      </div>
+    </form>
+  </div>
+</section>

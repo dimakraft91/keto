@@ -1,0 +1,45 @@
+<footer class="footer">
+  <div class="container">
+    <div class="footer__block">
+      <div class="footer__block-info">
+        <p>
+          Ce produit n'est pas approuvé pour l'utilisation ou la vente pour des personnes de moins de 18 ans. Si vous êtes enceinte, allaitez, prenez des médicaments ou souffrez d'une maladie chronique, veuillez consulter votre professionnel de la santé avant d'utiliser ce produit.
+        </p>
+      </div>
+      <div class="footer__block-links">
+        <h3 class="footer__block-title">
+          INFORMATIONS
+        </h3>
+        <ul class="footer__block-list">
+          <li><a href="contacts.html">Données et contacts</a></li>
+          <li><a href="service.html">Conditions générales</a></li>
+          <li><a href="privacy.html">Protection des données</a></li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+  <div class="footer__copyright">
+    <a class="footer__copyright-gotop" href="#header"><i class="fa-solid fa-angle-up"></i></a>
+    <div class="container">
+      <p class="footer__copyright-text">
+        Politique de confidentialité
+      </p>
+    </div>
+  </div>
+</footer>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const pageHeader = document.querySelector('header.header');
+    const deskMenu = document.querySelector('.header-menu__list')
+
+    if(pageHeader) {
+      let activeLink = pageHeader.dataset.active;
+      let activeLinks = deskMenu.querySelectorAll('a');
+
+      if(activeLink) {
+        activeLinks[activeLink - 1].classList.add('link-active')
+      }
+    }
+  })
+</script>

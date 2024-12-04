@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="fr" class="page">
+@include('partials/head.html', {
+  'title': 'NOUS CONTACTER - KETO DUAL SYSTEM'
+})
+<body class="page__body">
+  <div class="site-container">
+    @include('partials/header.html', {
+      'activelink': '4'
+    })
+    <main class="main">
+      @include('partials/page-title.html', {
+        'title': 'NOUS CONTACTER',
+        'class': 'contact-title'
+      })
+      @include('partials/contacts/contacts-body.html')
+
+
+    </main>
+
+    @include('partials/footer.html')
+    <!-- @include('html/h1.html') пример include -->
+  </div>
+</body>
+
+</html>

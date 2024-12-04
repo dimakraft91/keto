@@ -1,0 +1,14 @@
+.service-body{
+	&__content-list,
+	&__article-list {
+		list-style: none;
+		padding: 0px;
+	}
+	&__content-item,
+	&__article-item {
+		margin: 5px 0px;
+	}
+	&__article-item span {
+		color: green;
+	}
+}

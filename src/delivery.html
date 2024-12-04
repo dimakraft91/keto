@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="fr" class="page">
+	@include('partials/head.html', {
+	'title': 'RETOUR - KETO DUAL SYSTEM'
+	})
+	<body class="page__body">
+		<div class="site-container">
+			@include('partials/header.html', {
+        'activelink': '3'
+      })
+			<main class="main">
+			@include('partials/page-title.html', {
+				'title': 'RETOUR',
+				'class': ''
+			})
+
+			@include('partials/delivery/delivery-header.html')
+			@include('partials/delivery/delivery-faq.html')
+
+			</main>
+
+		@include('partials/footer.html')
+		<!-- @include('html/h1.html') пример include -->
+		</div>
+		<script>
+document.addEventListener('DOMContentLoaded', () => {
+	const accordItems = document.querySelectorAll('.faq-list__item');
+	accordItems.forEach(item => {
+		let itemHeader = item.querySelector('.faq-list__item-title');
+
+		itemHeader.addEventListener('click', () => {
+      if(item.classList.contains('faq-list__item--active')) {
+        item.classList.remove('faq-list__item--active');
+      } else {
+        closeAllAccords()
+        item.classList.add('faq-list__item--active');
+      }
+		})
+	})
+
+	function closeAllAccords() {
+		accordItems.forEach(i => {
+		i.classList.remove('faq-list__item--active');
+		})
+	}
+})
+</script>

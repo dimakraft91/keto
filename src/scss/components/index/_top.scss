@@ -1,0 +1,161 @@
+.index-top {
+  padding: 2rem 0rem 3rem;
+  position: relative;
+  overflow: hidden;
+
+  &::after {
+    content: "";
+    position: absolute;
+    z-index: -999;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url(../img/svg/header.svg);
+    background-position: 100% 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    @media screen and (max-width: 800px) {
+      top: 10%;
+      transform: rotate(10deg) scale(1.2)
+    }
+
+    @media screen and (max-width: 600px) {
+      top: 15%;
+    }
+
+    @media screen and (max-width: 400px) {
+      top: 30%;
+    }
+  }
+
+
+  &-main {
+    display: flex;
+    justify-content: flex-end;
+    padding: 10px 0;
+    width: 100%;
+    background-image: url(../img/keto.png);
+    background-position: 400px top;
+    // background-size: contain;
+    background-size: 22%;
+    background-repeat: no-repeat;
+
+    &__btn {
+      display: inline-block;
+      border-radius: 50px;
+      padding: 15px 30px;
+      // width: 300px;
+      background: var(--light-color);
+      box-shadow: 0 0 10px 2px var(--light-color);
+      font-weight: 600;
+      font-size: 1.7rem;
+      line-height: 1;
+      text-align: center;
+      color: #000;
+      transition: all 0.2s ease;
+
+      span {
+        display: block;
+        margin-top: 10px;
+        font-size: 0.9rem;
+        line-height: 1;
+      }
+
+      &:hover {
+        color: var(--light-color);
+        background-color: var(--orange);
+        box-shadow: 0 0 10px 2px var(--orange);
+      }
+
+      &:active {
+        color: var(--light-color);
+        background-color: var(--orange);
+        box-shadow: 0 0 10px 2px var(--orange);
+        transform: scale(0.98);
+      }
+
+      @media screen and (max-width: 900px) {
+        display: none;
+      }
+    }
+
+    &__info {
+      display: block;
+      padding: 5% 15% 5% 45%;
+      text-align: center;
+
+      h1 {
+        font-size: 2.2rem;
+        color: var(--light-color);
+
+        @media screen and (max-width: 900px) {
+          font-size: 1.6rem;
+        }
+
+        @media screen and (max-width: 590px) {
+          font-size: 1.3rem;
+          padding: 0 10px;
+        }
+
+        @media screen and (max-width: 380px) {
+          font-size: 1.2rem;
+        }
+      }
+
+      @media screen and (max-width: 1200px) {
+        padding: 44% 0 0%;
+        text-align: center;
+      }
+      @media screen and (max-width: 500px) {
+        padding: 48% 0 0%;
+      }
+      @media screen and (max-width: 400px) {
+        padding: 77% 0 0%;
+      }
+    }
+
+    @media screen and (max-width: 1450px) {
+      background-position: 280px;
+      background-size: 26%;
+    }
+    @media screen and (max-width: 1350px) {
+      background-position: 220px;
+      background-size: 26%;
+    }
+    @media screen and (max-width: 1200px) {
+      justify-content: center;
+      background-position: center top 70px;
+      background-size: 40%;
+    }
+    @media screen and (max-width: 730px) {
+      background-position: center top 24px;
+      background-size: 52%;
+    }
+    @media screen and (max-width: 400px) {
+      background-position: center top 34px;
+      background-size: 85%;
+    }
+  }
+
+  @media screen and (max-width: 1200px) {
+    padding: 2rem 0rem 2rem;
+  }
+
+  @media screen and (max-width: 900px) {
+    padding: 2rem 0rem 0rem;
+  }
+}
+
+@keyframes showmenu {
+  0% {
+    max-height: 0;
+  }
+
+  100% {
+    max-height: 600px;
+  }
+}
